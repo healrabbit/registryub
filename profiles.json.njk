@@ -1,0 +1,19 @@
+---
+permalink: profiles.json
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  eleventyRenderData:
+    eleventy: { type: "json" }
+---
+[
+{% for profile in collections.profile %}
+{
+  "name": "{{ profile.data.name | safe }}",
+  "birthdate": "{{ profile.data.birthdate | safe }}",
+  "region": {{ profile.data.region }},
+  "status": "{{ profile.data.status | safe }}",
+  "trial": {{ profile.data.trial }},
+  "url": "{{ profile.url | safe }}"
+}{% if not loop.last %},{% endif %}
+{% endfor %}
+]

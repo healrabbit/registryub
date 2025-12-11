@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record</title>
+    <title>{{ title }}</title>
     <link rel ="stylesheet" href="/styles/style.css">
-        <link rel="icon" type="image/png" href="/styles/registrythumbnail.png">
+    <link rel="icon" type="image/png" href="/styles/registrythumbnail.png">
 </head>
 <body>
 
@@ -18,24 +18,28 @@
   </div>
 
   <nav>
-    <a href="/index">Home</a>
-    <a href="/search">Search</a>
+   <a href="/index.html">Home</a>
+    <a href="/search.html">Search</a>
     <a href="#">Log In</a>
-    <a href="/active">Active Records</a>
-    <a href="/archived">Archived Records</a>
-    <a href="/contact">Contact</a>
+    <a href="/active.html">Active Records</a>
+    <a href="/archived.html">Archived Records</a>
+    <a href="/contact.html">Contact</a>
   </nav>
 
   <div class="container">
     <div class="main-content">
-      <button onclick="goBack()"> ← </button>
-  <div> 
-  <h1> Angela Seok-jin </h1> 
- <h4> Projected Birthdate: 07/03/1981 <h4> 
- <h4> Region: 54  </h4> 
-  <h4> Status: Active </h4> 
-  <h4> Origin: Trial 998</h4>
- </div>
+
+ <h2>Search for a Name</h2>
+
+  <input 
+    id="searchBox" 
+    type="text" 
+    placeholder="Enter a name…" 
+    style="padding: 8px; width: 300px;">
+
+  <ul id="results"></ul>
+
+
 
         <div class="bottomnotes">
         <p> This Division works tirelesly to upkeep the Tribune's standard of research. We are dedicated to accuracy within our probabilities. Results are posted on this Registry for transparency.</p>
@@ -60,7 +64,7 @@
         <li><a href="#">Submit Data Anomaly Report</a></li>
       </ul>
 
-      <h3> Contact Info</h3>
+     <h3> Contact Info</h3>
       <div id="contact">
       <p>Speculative Research Tribune </p>
       <p> Chair: <em> Leopold Schervitel </em> </p>
@@ -75,10 +79,43 @@
     &copy; 2025 Speculative Research Tribune — All Rights Reserved.
   </footer>
 <script>
-function goBack(){
-    window.history.back();
-}
+  let profiles = [];
+
+  async function loadProfiles() {
+    const res = await fetch('/profiles.json');
+    profiles = await res.json();
+  }
+
+  function searchProfiles(query) {
+    query = query.toLowerCase();
+    return profiles.filter(p => p.name.toLowerCase().includes(query));
+  }
+
+  document.getElementById('searchBox').addEventListener('input', (e) => {
+    const query = e.target.value.trim();
+    const resultsEl = document.getElementById('results');
+
+    if (!query) {
+      resultsEl.innerHTML = "";
+      return;
+    }
+
+    const matches = searchProfiles(query);
+
+    if (matches.length === 0) {
+      resultsEl.innerHTML = "<li>No results found.</li>";
+      return;
+    }
+
+    resultsEl.innerHTML = matches.map(p => `
+      <li>
+        <a href="${p.url}">${p.name}</a> — Trial ${p.trial}
+      </li>
+    `).join("");
+  });
+
+  loadProfiles();
 </script>
+
 </body>
 </html>
-
