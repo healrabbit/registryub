@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel ="stylesheet" href="/styles/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>The Registry of People Who Were Never Born</h1>
+  </header>
+
+  <div class="alert-banner">
+    NOTICE: Due to official request, data from Regions 43 and 65 has been temporarily made unavailable.
+  </div>
+
+  <nav>
+    <a href="/index">Home</a>
+    <a href="/search">Search</a>
+    <a href="#">Log In</a>
+    <a href="/active">Active Records</a>
+    <a href="/archived">Archived Records</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="main-content">
+      <h2>Archived Records</h2>
+      <div>
+    
+<div class="sort-controls">
+  <label for="sort-category">Sort by:</label>
+  <select id="sort-category">
+    <option value="name">Name</option>
+    <option value="birthdate">Age</option>
+    <option value="trial">Trial</option>
+    <option value="region">Region</option>
+  </select>
+
+  <label for="sort-order">Order:</label>
+  <select id="sort-order">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
+
+<ul id="record-list">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li 
+        data-name="filipe sjeng"
+        data-trial="1033"
+        data-birthdate="03/12/2002"
+        data-region="46"
+      >
+        <a href="/profile3.html">
+          Filipe Sjeng — 03/12/2002 — Trial 1033 — Region 46
+        </a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+      <li 
+        data-name="daisy kristoffer"
+        data-trial="834"
+        data-birthdate="12/19/1996"
+        data-region="24"
+      >
+        <a href="/profile6.html">
+          Daisy Kristoffer — 12/19/1996 — Trial 834 — Region 24
+        </a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li 
+        data-name="parker liu"
+        data-trial="864"
+        data-birthdate="04/22/2000"
+        data-region="80"
+      >
+        <a href="/profile9.html">
+          Parker Liu — 04/22/2000 — Trial 864 — Region 80
+        </a>
+      </li>
+    
+  
+    
+      <li 
+        data-name="nora velez"
+        data-trial="1021"
+        data-birthdate="10/02/1987"
+        data-region="45"
+      >
+        <a href="/profile10.html">
+          Nora Velez — 10/02/1987 — Trial 1021 — Region 45
+        </a>
+      </li>
+    
+  
+    
+  
+    
+      <li 
+        data-name="celeste geoffrey"
+        data-trial="1106"
+        data-birthdate="06/29/1993"
+        data-region="70"
+      >
+        <a href="/profile12.html">
+          Celeste Geoffrey — 06/29/1993 — Trial 1106 — Region 70
+        </a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+      <li 
+        data-name="marshal cleveland"
+        data-trial="1126"
+        data-birthdate="05/21/1986"
+        data-region="38"
+      >
+        <a href="/profile15.html">
+          Marshal Cleveland — 05/21/1986 — Trial 1126 — Region 38
+        </a>
+      </li>
+    
+  
+    
+  
+    
+  
+    
+      <li 
+        data-name="ragnar zahig"
+        data-trial="1026"
+        data-birthdate="01/04/1997"
+        data-region="49"
+      >
+        <a href="/profile18.html">
+          Ragnar Zahig — 01/04/1997 — Trial 1026 — Region 49
+        </a>
+      </li>
+    
+  
+    
+  
+</ul>
+        </div>
+ 
+
+      <div class="bottomnotes">
+        <p> This Division works tirelesly to upkeep the Tribune's standard of research. We are dedicated to accuracy within our probabilities. Results are posted on this Registry for transparency.</p>
+        <p> For administrative inquiries or records access, utilize th<a href="https.//sweetmeadowholidayhome.com">sweetmeadowholidayhome.com</a>FOR A RELAXING GETAWAYe contact methods listed on the site.</p>
+        <p> Records are updated periodically after trial sets.</p>
+        <p> <em>Speculative Research Bureau - Birth Record Division © 2025</em></p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h3>Latest Notices</h3>
+      <ul>
+        <li>12/08/2025 — Data purge completed for Regions 43 and 65.</li>
+        <li>11/29/2025 — All employees should check inboxes promptly for quarterly conference details.</li>
+        <li>11/03/2025 — Data updated for trials 1135-1138.</li>
+      </ul>
+
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Download Full Registry (CSV)</a></li>
+        <li><a href="#">Temporal Audit Guidelines (PDF)</a></li>
+        <li><a href="#">Submit Data Anomaly Report</a></li>
+      </ul>
+
+      <h3> Contact Info</h3>
+      <div id="contact">
+      <p>Speculative Research Tribune </p>
+      <p> Chair: <em> Leopold Schervitel </em> </p>
+      <p> Birth Record Division Head: <em> Robert Miller </em> </p>
+      <p> Contact: #################@#####.###</p>
+      <p> Phone: ###-###-#### </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Futures Bureau — All Rights Reserved.
+  </footer>
+
+<script>
+const list = document.getElementById('record-list');
+const sortCategory = document.getElementById('sort-category');
+const sortOrder = document.getElementById('sort-order');
+
+function sortRecords() {
+  const key = sortCategory.value;
+  const order = sortOrder.value;
+  const items = Array.from(list.querySelectorAll('li'));
+
+  items.sort((a, b) => {
+    let aValue = a.dataset[key];
+    let bValue = b.dataset[key];
+
+    // Numbers
+    if (key === 'trial' || key === 'region') {
+      aValue = Number(aValue);
+      bValue = Number(bValue);
+    }
+
+    // Dates
+    if (key === 'birthdate') {
+      aValue = new Date(aValue);
+      bValue = new Date(bValue);
+    }
+
+    // Strings
+    if (typeof aValue === 'string') {
+      aValue = aValue.toLowerCase();
+      bValue = bValue.toLowerCase();
+    }
+
+    if (aValue < bValue) return order === 'asc' ? -1 : 1;
+    if (aValue > bValue) return order === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  items.forEach(item => list.appendChild(item));
+}
+
+// Sort whenever a dropdown changes
+sortCategory.addEventListener('change', sortRecords);
+sortOrder.addEventListener('change', sortRecords);
+</script>
+</body>
+</html>
+

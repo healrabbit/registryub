@@ -1,0 +1,114 @@
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      background-color: #eef4f0;
+      color: #111;
+      font-size: 14px;
+    }
+
+    header {
+      background-color: #061522; 
+      color: #c1c3b3;         
+      padding: 1rem;
+      border-bottom: 4px solid #021f37;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: normal;
+    }
+
+    .alert-banner {
+      background-color: #fffae6;
+      border-top: 2px solid #efd897;
+      border-bottom: 2px solid #efd897;
+          font-size: 14px;
+      padding: 10px;
+      font-style: italic;
+  
+    }
+
+    nav {
+      background-color: #003a6e;
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: #cfe8df;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .main-content {
+      flex: 2;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    }
+    .sidebar {
+      flex: 1;
+      background-color: #f5f9f6;
+      padding: 1rem;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .directory .person {
+      border-bottom: 1px dashed #ccc;
+      padding: 0.6rem 0;
+    }
+    .directory .person h2 {
+      margin: 0 0 0.3rem 0;
+      font-size: 1.1rem;
+      color: #002a4e;
+    }
+    .directory .person p {
+      margin: 0.2rem 0;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #002a4e;
+    }
+
+    .bottomnotes {
+      margin-top: 2rem;
+      font-size: 12px;
+      color: #555;
+      background-color: #f4faf8;
+      padding: 1rem;
+      border-top: 1px solid #aaa;
+    }
+
+    footer {
+      background-color: #002a4e;
+      padding: 1rem;
+      text-align: center;
+      color: #cfe8df;
+      font-size: 13px;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #00456a;
+    }
+
+    #contact p{
+        margin-top:0px;
+        margin-bottom: 2px;
+    }

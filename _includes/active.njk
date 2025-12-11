@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel ="stylesheet" href="/styles/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>The Registry of People Who Were Never Born</h1>
+  </header>
+
+  <div class="alert-banner">
+    NOTICE: Due to official request, data from Regions 43 and 65 has been temporarily made unavailable.
+  </div>
+
+  <nav>
+   <a href="/index.html">Home</a>
+    <a href="/search.html">Search</a>
+    <a href="#">Log In</a>
+    <a href="/active.html">Active Records</a>
+    <a href="/archived.html">Archived Records</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="main-content">
+    <h2>Active Records</h2>
+
+<div class="sort-controls">
+  <label for="sort-category">Sort by:</label>
+  <select id="sort-category">
+    <option value="name">Name</option>
+    <option value="birthdate">Age</option>
+    <option value="trial">Trial</option>
+    <option value="region">Region</option>
+  </select>
+
+  <label for="sort-order">Order:</label>
+  <select id="sort-order">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
+
+<ul id="record-list">
+  {% for profile in collections.all %}
+    {% if profile.data.status == "Active" %}
+      <li 
+        data-name="{{ profile.data.name | lower }}"
+        data-trial="{{ profile.data.trial }}"
+        data-birthdate="{{ profile.data.birthdate }}"
+        data-region="{{ profile.data.region }}"
+      >
+        <a href="{{ profile.url }}">
+          {{ profile.data.name }} — {{ profile.data.birthdate }} — Trial {{ profile.data.trial }} — Region {{ profile.data.region }}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+
+
+
+      <div class="bottomnotes">
+        <p> This Division works tirelesly to upkeep the Tribune's standard of research. We are dedicated to accuracy within our probabilities. Results are posted on this Registry for transparency.</p>
+        <p> For administrative inquiries or records access, utilize th<a href="https://sweetmeadowholidayhome.com">sweetmeadowholidayhome.com</a> for a relaxing getaway.</p>
+        <p> Records are updated periodically after trial sets.</p>
+        <p> <em>Speculative Research Bureau - Birth Record Division © 2025</em></p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h3>Latest Notices</h3>
+      <ul>
+        <li>12/08/2025 — Data purge completed for Regions 43 and 65.</li>
+        <li>11/29/2025 — All employees should check inboxes promptly for quarterly conference details.</li>
+        <li>11/03/2025 — Data updated for trials 1135-1138.</li>
+      </ul>
+
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Download Full Registry (CSV)</a></li>
+        <li><a href="#">Temporal Audit Guidelines (PDF)</a></li>
+        <li><a href="#">Submit Data Anomaly Report</a></li>
+      </ul>
+
+      <h3> Contact Info</h3>
+      <div id="contact">
+        <p>Speculative Research Tribune </p>
+        <p> Chair: <em> Leopold Schervitel </em> </p>
+        <p> Birth Record Division Head: <em> Robert Miller </em> </p>
+        <p> Contact: #################@#####.###</p>
+        <p> Phone: ###-###-#### </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Futures Bureau — All Rights Reserved.
+  </footer>
+
+<script>
+const list = document.getElementById('record-list');
+const sortCategory = document.getElementById('sort-category');
+const sortOrder = document.getElementById('sort-order');
+
+function sortRecords() {
+  const key = sortCategory.value;
+  const order = sortOrder.value;
+  const items = Array.from(list.querySelectorAll('li'));
+
+  items.sort((a, b) => {
+    let aValue = a.dataset[key];
+    let bValue = b.dataset[key];
+
+    // Numbers
+    if (key === 'trial' || key === 'region') {
+      aValue = Number(aValue);
+      bValue = Number(bValue);
+    }
+
+    // Dates
+    if (key === 'birthdate') {
+      aValue = new Date(aValue);
+      bValue = new Date(bValue);
+    }
+
+    // Strings
+    if (typeof aValue === 'string') {
+      aValue = aValue.toLowerCase();
+      bValue = bValue.toLowerCase();
+    }
+
+    if (aValue < bValue) return order === 'asc' ? -1 : 1;
+    if (aValue > bValue) return order === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  items.forEach(item => list.appendChild(item));
+}
+
+
+sortCategory.addEventListener('change', sortRecords);
+sortOrder.addEventListener('change', sortRecords);
+</script>
+
+</body>
+</html>
