@@ -19,7 +19,7 @@
       font-weight: normal;
     }
 
-    .alert-banner {
+    .banner {
       background-color: #fffae6;
       border-top: 2px solid #efd897;
       border-bottom: 2px solid #efd897;
@@ -45,13 +45,14 @@
     }
 
     .container {
-      display: flex;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
       padding: 1rem;
       gap: 1rem;
     }
 
     .main-content {
-      flex: 2;
+      grid-column: 1;
       background-color: #fff;
       padding: 1rem;
       border: 1px solid #bbb;
@@ -59,7 +60,7 @@
       box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
     }
     .sidebar {
-      flex: 1;
+      grid-column: 2;
       background-color: #f5f9f6;
       padding: 1rem;
       border: 1px solid #bbb;
@@ -96,7 +97,7 @@
     }
 
     footer {
-      background-color: #002a4e;
+      background-color: #061522;
       padding: 1rem;
       text-align: center;
       color: #cfe8df;

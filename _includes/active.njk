@@ -13,10 +13,11 @@
     <h1>The Registry of People Who Were Never Born</h1>
   </header>
 
-  <div class="alert-banner">
+  <div class="banner">
     NOTICE: Due to official request, data from Regions 43 and 65 has been temporarily made unavailable.
   </div>
 
+{#navigation bar#}
   <nav>
    <a href="/index.html">Home</a>
     <a href="/search.html">Search</a>
@@ -29,6 +30,8 @@
   <div class="container">
     <div class="main-content">
     <h2>Active Records</h2>
+
+{#pick how to order list #} 
 
 <div class="sort-controls">
   <label for="sort-category">Sort by:</label>
@@ -46,6 +49,8 @@
   </select>
 </div>
 
+
+{#list of all records with active status#}
 <ul id="record-list">
   {% for profile in collections.all %}
     {% if profile.data.status == "Active" %}
@@ -74,6 +79,8 @@
       </div>
 </div>
 
+{#align to the right#}
+
     <div class="sidebar">
       <h3>Latest Notices</h3>
       <ul>
@@ -85,7 +92,7 @@
       <h3>Quick Links</h3>
       <ul>
         <li><a href="#">Download Full Registry (CSV)</a></li>
-        <li><a href="#">Temporal Audit Guidelines (PDF)</a></li>
+        <li><a href="#">Data Documentation Guidelines (PDF)</a></li>
         <li><a href="#">Submit Data Anomaly Report</a></li>
       </ul>
 
@@ -118,19 +125,19 @@ function sortRecords() {
     let aValue = a.dataset[key];
     let bValue = b.dataset[key];
 
-    // Numbers
+    // Numbers (trial and region)
     if (key === 'trial' || key === 'region') {
       aValue = Number(aValue);
       bValue = Number(bValue);
     }
 
-    // Dates
+    // Dates (birthdate)
     if (key === 'birthdate') {
       aValue = new Date(aValue);
       bValue = new Date(bValue);
     }
 
-    // Strings
+    // Strings (name alphebetically)
     if (typeof aValue === 'string') {
       aValue = aValue.toLowerCase();
       bValue = bValue.toLowerCase();
